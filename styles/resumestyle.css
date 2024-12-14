@@ -1,0 +1,142 @@
+body{
+    background-color: #ffffff;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 16px;
+    color: #585858;
+
+}
+
+h1{
+    color: #000000;
+    font-size: 60px;
+    line-height: 0px;
+}
+h2{
+    color: #000000;
+    font-size: 40px;
+    line-height: 100px;
+
+}
+
+h3{
+    color: #000000;
+    line-height: 0px;
+    font-size: 26px;
+}
+
+a {
+    color:#829f91;
+    text-decoration: none;
+}
+a:hover{
+    text-decoration: underline;
+    color: #a9c1b5;
+}
+
+
+.subheader{
+    font-size: 19px;
+}
+
+.directory{
+    font-size: 25px;
+    line-height: 50px;
+
+}
+
+.dates{
+    font-size: 16px;
+    color: #395246;
+    text-align: right;
+    font-weight: normal;
+}
+
+.anchor{
+    display: block;
+    height: 350px; /*same height as header*/
+    margin-top: -350px; /*same height as header*/
+    visibility: hidden;
+  }
+
+.common{
+    /* background-color: #373a37; */
+    position: absolute;
+}
+
+
+.leftmenu{
+    top: 0px;
+    left: 0px;
+    width: 275px; 
+    bottom: 0px;
+    z-index: 1;
+    padding-top: 5px;
+    position: fixed;
+    background-color: #395246;
+    text-align: center;
+
+}
+
+.startpage{
+    top: 300px;
+    left: 275px;
+    right: 114px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.experience {
+    top: 800px;
+    left: 275px;
+    right: 114px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.education {
+    top: 2000px;
+    left: 275px;
+    right: 114px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.skills{
+    top: 2600px;
+    left: 275px;
+    right: 114px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.Awards{
+    top: 3200px;
+    left: 275px;
+    right: 114px;
+    padding-right: 30px;
+    padding-left: 30px;
+}
+
+.rightmenu{
+    top: 114px;
+    right: 5px;
+    width: 100px;
+    bottom: 39px;
+    padding-left: 5px;
+
+
+}
+
+.footer{
+    bottom: 5px;
+    left: 5px;
+    right: 5px;
+    height: 25px;
+    font-size: 8px;
+    color: #aca9a9;
+    text-align: center;
+    padding-top: 15px;
+    position: fixed;
+
+}
+

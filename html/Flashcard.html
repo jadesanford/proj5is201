@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Learn Hiragana Flashcards</title>
+    <style>
+        body {
+            font-family:'Courier New', Courier, monospace;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            margin: 0;
+            background-color: #191919;
+        }
+        .flashcard-container {
+            text-align: center;
+            padding: 20px;
+            border: 2px solid #2e3b4e;
+            border-radius: 10px;
+            background-color: #fff;
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+            width: 300px;
+        }
+        .character {
+            font-size: 5rem;
+            color: #2e3b4e;
+            margin: 20px 0;
+        }
+        .buttons {
+            margin-top: 20px;
+        }
+        button {
+            padding: 10px 20px;
+            font-size: 1rem;
+            margin: 5px;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        button.reveal {
+            background-color: #2e3b4e;
+            color: #fff;
+        }
+        button.next {
+            background-color: #4f9fd9;
+            color: #fff;
+        }
+    </style>
+</head>
+<body>
+    <div class="flashcard-container">
+        <div class="character" id="hiragana-character">?</div>
+        <div id="answer" style="display: none; font-weight: bold;font-size: 1.5rem; color: #d9534f;">?</div>
+        <div class="buttons">
+            <button class="reveal" onclick="revealAnswer()">Reveal Answer</button>
+            <button class="next" onclick="nextCharacter()">Next</button>
+        </div>
+    </div>
+
+    <script>
+        const hiragana = [
+            { character: 'あ', romaji: 'a' },
+            { character: 'い', romaji: 'i' },
+            { character: 'う', romaji: 'u' },
+            { character: 'え', romaji: 'e' },
+            { character: 'お', romaji: 'o' },
+            { character: 'か', romaji: 'ka' },
+            { character: 'き', romaji: 'ki' },
+            { character: 'く', romaji: 'ku' },
+            { character: 'け', romaji: 'ke' },
+            { character: 'こ', romaji: 'ko' },
+        ];
+
+        let currentCharacter = {};
+
+        function nextCharacter() {
+            currentCharacter = hiragana[Math.floor(Math.random() * hiragana.length)];
+            document.getElementById('hiragana-character').textContent = currentCharacter.character;
+            document.getElementById('answer').style.display = 'none';
+        }
+
+        function revealAnswer() {
+            document.getElementById('answer').textContent = currentCharacter.romaji;
+            document.getElementById('answer').style.display = 'block';
+        }
+
+        // Initialize the first character
+        nextCharacter();
+    </script>
+</body>
+</html>
