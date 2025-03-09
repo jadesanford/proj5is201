@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Plan a Trip</title>
+        <link rel="stylesheet" href="../styles/style.css">
+
+</head>
+<body>
+    <img src="../images/planatripcover.jpg" width=100% alt="planatripcover">
+
+    <a href="../intex.html"><strong><-Homepage</strong></a>
+
+    <p>Planning a trip to Japan can be intimidating. Let's create an itinerary to help the trip go more smoothly.</p>
+    <p>Reference<a href="../html/food.html"><strong>Food</strong></a> and<a href="../html/places.html"><strong>Places</strong></a> for ideas!</p>
+        
+        <hr>
+
+        <li><strong>How long are you going?</strong></li>
+        <label>From: <input type="date" id="from"></label>
+        <label>To: <input type="date" id="to"></label>
+        <button onclick="generateDays()">Submit</button>
+            
+            <div id="entries"></div>
+            
+            <script>
+                function generateDays() {
+                    let fromDate = document.getElementById('from').value;
+                    let toDate = document.getElementById('to').value;
+                    let entriesDiv = document.getElementById('entries');
+                    
+                    // Validate the date range
+                    if (!fromDate || !toDate || fromDate > toDate) {
+                        alert("Please select a valid date range.");
+                        return;
+                    }
+
+                    let currentDate = new Date(fromDate);
+                    let endDate = new Date(toDate);
+                    let dayCount = 1;
+
+                    // Generate entries for each day
+                    while (currentDate <= endDate) {
+                        let dayString = currentDate.toDateString();
+                        let entryId = `text${dayCount}`;
+
+                        let entryDiv = document.createElement("div");
+                        let dayLabel = document.createElement("p");
+                        let textArea = document.createElement("textarea");
+                        let saveButton = document.createElement("button");
+
+                        dayLabel.textContent = `Day ${dayCount}: ${dayString}`;
+                        textArea.id = entryId;
+                        textArea.style.width = "100%";
+                        textArea.style.height = "100px";
+                        saveButton.textContent = "Save";
+                        saveButton.onclick = function() { saveEntry(entryId); };
+
+                        entryDiv.appendChild(dayLabel);
+                        entryDiv.appendChild(textArea);
+                        entryDiv.appendChild(saveButton);
+                        entriesDiv.appendChild(entryDiv);
+
+                        currentDate.setDate(currentDate.getDate() + 1);
+                        dayCount++;
+                    }
+
+                    // Add a clear button if not already present
+                    if (!document.getElementById('clearButton')) {
+                        let clearButton = document.createElement("button");
+                        clearButton.id = "clearButton";
+                        clearButton.textContent = "Clear Entries";
+                        clearButton.style.marginTop = "20px";
+                        clearButton.onclick = function() {
+                            entriesDiv.innerHTML = ""; // Clears all generated entries
+                        };
+                        entriesDiv.appendChild(clearButton);
+                    }
+                }
+        
+                function saveEntry(id) {
+                    let text = document.getElementById(id).value;
+                    localStorage.setItem(id, text);
+                    alert("Entry saved!");
+                }
+            </script>
+
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
+<p>&nbsp;</p>
